@@ -160,6 +160,7 @@ function combine(val) {
             
 
                async function weatherdata(url) {
+                   try{
                         var data = await fetch(url);
                         var datajson = await data.json();
                         console.log(datajson)
@@ -167,6 +168,10 @@ function combine(val) {
                         let temp=datajson.main.temp
                         alert('hi todays weather is' + " "+weather+"  "+"temperature is"+" "+temp)
                         return (datajson);
+                   }
+                   catch{
+                   console.error('errror in weather api')
+                   }
                     }
                     weatherdata(url);
 
